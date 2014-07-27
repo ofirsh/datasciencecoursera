@@ -39,6 +39,8 @@ run_analysis <- function()
   ## Appropriately labels the data set with descriptive variable names
   col.names.std.mean.clean <- tolower(gsub("[[:punct:]]", "", col.names.std.mean))
   
+  names(merged.std.mean) <- col.names.std.mean.clean
+  
   aggdata <-aggregate(merged.std.mean, by=list(activity.merged.readable,subject.merged),FUN=mean, na.rm=TRUE)
   
   names(aggdata)[1] <- "activity"
